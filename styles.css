@@ -4,7 +4,8 @@
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif; font-weight:300; color:var(--ink); background:var(--white); overflow-x:hidden; letter-spacing:.2px;}
+html.no-scroll, body.no-scroll{overflow:hidden; height:100%;}
+body{font-family:'Jost',sans-serif; font-weight:300; color:var(--ink); background:var(--white); overflow-x:hidden; letter-spacing:.2px; width:100%;}
 img{max-width:100%; display:block;}
 a{text-decoration:none; color:inherit;}
 .container{max-width:1200px; margin:0 auto; padding:0 32px;}
@@ -43,12 +44,31 @@ nav a:hover::after, nav a.active::after{width:100%;}
 nav a.active{color:var(--sage-dark);}
 header:not(.solid) nav a.active{color:var(--white);}
 .nav-cta{display:flex; align-items:center; gap:20px;}
-.hamburger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; z-index:200;}
+.hamburger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; z-index:250; position:relative;}
 .hamburger span{width:24px; height:1.5px; background:var(--ink); transition:.3s;}
 header:not(.solid) .hamburger span{background:var(--white);}
-.mobile-menu{display:none; flex-direction:column; background:var(--white); border-top:1px solid var(--beige); position:absolute; top:100%; left:0; right:0;}
-.mobile-menu a{padding:16px 32px; border-bottom:1px solid var(--beige); font-size:.85rem; text-transform:uppercase; letter-spacing:1.5px;}
-.mobile-menu.open{display:flex;}
+
+/* MOBILE MENU - true full-screen overlay */
+.mobile-menu{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  position:fixed; inset:0; width:100vw; height:100vh; height:100dvh;
+  background:var(--ink);
+  z-index:220;
+  opacity:0; visibility:hidden; transform:translateY(-12px);
+  transition:opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+}
+.mobile-menu.open{opacity:1; visibility:visible; transform:translateY(0); transition:opacity .35s ease, transform .35s ease, visibility 0s;}
+.mobile-menu a{
+  color:var(--white); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem;
+  padding:14px 0; border-bottom:none; text-align:center; letter-spacing:.5px; text-transform:none;
+}
+.mobile-menu-close{
+  position:absolute; top:22px; right:22px; width:46px; height:46px; border-radius:50%;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.35); color:var(--white);
+  font-size:1.6rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:.3s;
+}
+.mobile-menu-close:hover{background:rgba(255,255,255,.18); transform:rotate(90deg);}
 
 /* HERO */
 .hero{position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;}
@@ -130,8 +150,20 @@ section{padding:110px 0;}
 .g-item:hover img{transform:scale(1.1); filter:grayscale(0%);}
 .lightbox{display:none; position:fixed; inset:0; background:rgba(9,7,6,.92); z-index:1000; align-items:center; justify-content:center; padding:20px;}
 .lightbox.open{display:flex;}
-.lightbox img{max-width:90vw; max-height:85vh;}
-.lightbox-close{position:absolute; top:28px; right:32px; color:var(--white); font-size:2rem; cursor:pointer; font-weight:200;}
+.lightbox img{max-width:88vw; max-height:82vh; transition:opacity .25s ease, transform .25s ease; border-radius:2px;}
+.lightbox img.fading{opacity:0; transform:scale(.98);}
+.lightbox-close{position:absolute; top:22px; right:24px; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); color:var(--white); font-size:1.7rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.3s; z-index:2;}
+.lightbox-close:hover{background:rgba(255,255,255,.2);}
+.lightbox-nav{position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); color:var(--white); font-size:1.3rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.3s; z-index:2;}
+.lightbox-nav:hover{background:var(--sage-dark); border-color:var(--sage-dark);}
+.lightbox-prev{left:16px;}
+.lightbox-next{right:16px;}
+@media(max-width:600px){
+  .lightbox-nav{width:44px; height:44px; font-size:1.1rem;}
+  .lightbox-prev{left:8px;}
+  .lightbox-next{right:8px;}
+  .lightbox-close{top:14px; right:14px; width:40px; height:40px; font-size:1.4rem;}
+}
 
 /* BOOKING */
 .booking{background:var(--sage-dark); color:var(--white);}
@@ -167,28 +199,35 @@ footer{background:var(--ink); color:var(--beige); padding:70px 0 30px; overflow-
 .f-social{display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;}
 .copyright{text-align:center; border-top:1px solid #2a2a28; padding-top:26px; font-size:.75rem; color:#8a8480; letter-spacing:.5px; padding-left:10px; padding-right:10px;}
 
-/* REAL BRAND ICON BADGES (Font Awesome Brands) - footer, contact section, floating dock */
-.social-badge{width:42px; height:42px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; transition:transform .3s ease, box-shadow .3s ease, filter .3s ease; position:relative; flex-shrink:0; box-shadow:0 4px 14px rgba(9,7,6,.22);}
+/* REAL BRAND ICON BADGES (Font Awesome Brands) - shared visual style only.
+   Positioning is handled separately per context (.f-social / .contact-social vs .floating-dock)
+   so the two can never conflict. */
+.social-badge{width:42px; height:42px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; transition:transform .3s ease, box-shadow .3s ease, filter .3s ease; flex-shrink:0; box-shadow:0 4px 14px rgba(9,7,6,.22); position:static;}
 .social-badge i{font-size:1.05rem; line-height:1;}
 .social-badge:hover{transform:translateY(-3px) scale(1.08); box-shadow:0 10px 22px rgba(9,7,6,.32);}
 .social-badge.wa{background:linear-gradient(135deg,#2FE374,#128C4A);}
 .social-badge.fb{background:linear-gradient(135deg,#3B8EFF,#0C44AE);}
 .social-badge.ig{background:linear-gradient(135deg,#f9c94a 0%,#f0842e 22%,#e4405f 48%,#c6266f 68%,#6b2fc9 100%);}
-.contact-social{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
 
-/* FLOATING SOCIAL - bottom right, gentle premium motion */
-.floating{position:fixed; right:22px; bottom:26px; display:flex; flex-direction:column; gap:14px; z-index:90;}
-.floating .social-badge{width:52px; height:52px;}
-.floating .social-badge i{font-size:1.35rem;}
-.floating a:nth-child(1){animation:floatIn .6s ease-out .1s both, floatBob 3.6s ease-in-out .7s infinite;}
-.floating a:nth-child(2){animation:floatIn .6s ease-out .25s both, floatBob 3.6s ease-in-out .9s infinite;}
-.floating a:nth-child(3){animation:floatIn .6s ease-out .4s both, floatBob 3.6s ease-in-out 1.1s infinite;}
-.floating a:hover{animation-play-state:paused;}
-.floating a:hover .social-badge{transform:translateY(-4px) scale(1.1); box-shadow:0 14px 28px rgba(9,7,6,.35);}
-.floating a .tip{position:absolute; right:60px; top:50%; transform:translateY(-50%); background:var(--ink); color:var(--white); font-size:.7rem; letter-spacing:.5px; padding:6px 12px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease; border-radius:2px;}
-.floating a:hover .tip{opacity:1;}
-@keyframes floatIn{from{opacity:0; transform:translateX(36px);}to{opacity:1; transform:translateX(0);}}
-@keyframes floatBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+/* Footer + Contact section icon rows: normal flow, flex, wraps cleanly */
+.f-social, .contact-social{display:flex; flex-direction:row; align-items:center; flex-wrap:wrap; gap:12px; position:static;}
+.f-social{margin-top:16px;}
+.contact-social{margin-top:26px;}
+
+/* FLOATING DOCK - fixed bottom-right, fully separate namespace from footer icons */
+.floating-dock{position:fixed; right:22px; bottom:26px; display:flex; flex-direction:column; gap:14px; z-index:90; pointer-events:none;}
+.floating-dock a{pointer-events:auto; position:relative;}
+.floating-dock .social-badge{width:52px; height:52px;}
+.floating-dock .social-badge i{font-size:1.35rem;}
+.floating-dock a:nth-child(1){animation:dockIn .6s ease-out .1s both, snakeWave 3s ease-in-out .65s infinite;}
+.floating-dock a:nth-child(2){animation:dockIn .6s ease-out .25s both, snakeWave 3s ease-in-out .83s infinite;}
+.floating-dock a:nth-child(3){animation:dockIn .6s ease-out .4s both, snakeWave 3s ease-in-out 1.01s infinite;}
+.floating-dock a:hover{animation-play-state:paused;}
+.floating-dock a:hover .social-badge{transform:translateY(-4px) scale(1.1); box-shadow:0 14px 28px rgba(9,7,6,.35);}
+.floating-dock a .tip{position:absolute; right:60px; top:50%; transform:translateY(-50%); background:var(--ink); color:var(--white); font-size:.7rem; letter-spacing:.5px; padding:6px 12px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease; border-radius:2px;}
+.floating-dock a:hover .tip{opacity:1;}
+@keyframes dockIn{from{opacity:0; transform:translateX(36px);}to{opacity:1; transform:translateX(0);}}
+@keyframes snakeWave{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
 @media(max-width:900px){
   nav ul, .nav-cta .btn-primary{display:none;}
@@ -202,10 +241,10 @@ footer{background:var(--ink); color:var(--beige); padding:70px 0 30px; overflow-
   .booking-form{padding:28px;}
   .footer-grid{grid-template-columns:1fr; gap:40px; text-align:left;}
   .f-social, .contact-social{justify-content:flex-start;}
-  .floating{right:14px; bottom:18px; gap:10px;}
-  .floating .social-badge{width:44px; height:44px;}
-  .floating .social-badge i{font-size:1.1rem;}
-  .floating a .tip{display:none;}
+  .floating-dock{right:14px; bottom:18px; gap:10px;}
+  .floating-dock .social-badge{width:44px; height:44px;}
+  .floating-dock .social-badge i{font-size:1.1rem;}
+  .floating-dock a .tip{display:none;}
 }
 @media(max-width:600px){
   .container{padding:0 22px;}
@@ -223,7 +262,7 @@ footer{background:var(--ink); color:var(--beige); padding:70px 0 30px; overflow-
   .copyright{font-size:.7rem;}
 }
 @media(max-width:340px){
-  .floating{right:10px; bottom:14px;}
-  .floating .social-badge{width:40px; height:40px;}
-  .floating .social-badge i{font-size:1rem;}
+  .floating-dock{right:10px; bottom:14px;}
+  .floating-dock .social-badge{width:40px; height:40px;}
+  .floating-dock .social-badge i{font-size:1rem;}
 }
