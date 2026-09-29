@@ -9,40 +9,46 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Dancing+Script:wght@600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
-
-<meta name="google-site-verification" content="oUn4L3zSNWFjiofN02fjGdxRvBOYWi5eDosgvFHyrqU" /><meta name="google-site-verification" content="oUn4L3zSNWFjiofN02fjGdxRvBOYWi5eDosgvFHyrqU" />
 </head>
 <body>
 
 <!-- icon sprite -->
 <svg style="display:none">
+  <symbol id="ic-massage" viewBox="0 0 48 48"><path d="M8 30c4-10 12-16 16-16s12 6 16 16" /><path d="M10 30c3 6 8 10 14 10s11-4 14-10" /></symbol>
   <symbol id="ic-bloom" viewBox="0 0 48 48"><circle cx="24" cy="24" r="4"/><path d="M24 6c4 4 4 10 0 14-4-4-4-10 0-14Z"/><path d="M24 42c4-4 4-10 0-14-4 4-4 10 0 14Z"/><path d="M6 24c4-4 10-4 14 0-4 4-10 4-14 0Z"/><path d="M42 24c-4-4-10-4-14 0 4 4 10 4 14 0Z"/></symbol>
   <symbol id="ic-drop" viewBox="0 0 48 48"><path d="M24 6c8 10 13 17 13 24a13 13 0 1 1-26 0c0-7 5-14 13-24Z"/></symbol>
-  <symbol id="ic-star" viewBox="0 0 48 48"><path d="M24 6l4.5 12.5L41 22l-12.5 3.5L24 38l-4.5-12.5L7 22l12.5-3.5Z"/></symbol>
+  <symbol id="ic-hand" viewBox="0 0 48 48"><path d="M14 26V12a3 3 0 0 1 6 0v10"/><path d="M20 22v-6a3 3 0 0 1 6 0v6"/><path d="M26 22v-4a3 3 0 0 1 6 0v10"/><path d="M14 26c0 10 4 16 12 16s10-6 10-12"/></symbol>
   <symbol id="ic-curve" viewBox="0 0 48 48"><path d="M10 34C18 34 18 14 26 14s8 20 16 20"/><circle cx="10" cy="34" r="2"/><circle cx="38" cy="34" r="2"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 48 48"><path d="M24 6l4.5 12.5L41 22l-12.5 3.5L24 38l-4.5-12.5L7 22l12.5-3.5Z"/></symbol>
 </svg>
 
 <header id="siteHeader">
   <div class="nav-wrap">
-    <a href="index.html" class="brand"><img src="logo.svg" alt="Women in Wellness Spa" class="brand-mark"></a>
+    <a href="#home" class="brand"><img src="logo.svg" alt="Women in Wellness Spa" class="brand-mark"></a>
     <nav><ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="treatments.html">Treatments &amp; Packages</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="booking.html">Booking</a></li>
+      <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#treatments" class="nav-link" data-section="treatments">Treatments</a></li>
+      <li><a href="#gallery" class="nav-link" data-section="gallery">Gallery</a></li>
+      <li><a href="#reviews" class="nav-link" data-section="reviews">Reviews</a></li>
+      <li><a href="#booking" class="nav-link" data-section="booking">Booking</a></li>
+      <li><a href="#faq" class="nav-link" data-section="faq">FAQ</a></li>
     </ul></nav>
     <div class="nav-cta">
-      <a href="booking.html" class="btn btn-primary btn-sm">Book Appointment</a>
+      <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
-    <a href="index.html">Home</a>
-    <a href="treatments.html">Treatments &amp; Packages</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="booking.html">Booking</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#treatments">Treatments</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#booking">Booking</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </div>
 </header>
 
@@ -54,9 +60,12 @@
     <h1>Women in<br>Wellness Spa</h1>
     <div class="tagline">Relax &nbsp;·&nbsp; Revive &nbsp;·&nbsp; Rejuvenate</div>
     <p>A calming retreat in Rustenburg where therapeutic treatments meet a warm, nurturing space — crafted for the moments you give back to yourself.</p>
+    <ul class="hero-services">
+      <li>Massages</li><li>Facials</li><li>Body Treatments</li><li>Manicure &amp; Pedicure</li><li>Waxing</li><li>Wellness Treatments</li>
+    </ul>
     <div class="hero-ctas">
-      <a href="booking.html" class="btn btn-primary">Book Appointment</a>
-      <a href="treatments.html" class="btn btn-outline-light">Explore Treatments</a>
+      <a href="#booking" class="btn btn-primary">Book Now</a>
+      <a href="#treatments" class="btn btn-outline-light">Explore Treatments</a>
     </div>
   </div>
   <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
@@ -72,6 +81,7 @@
       <div class="eyebrow">About Us</div>
       <h2 class="serif-heading">An Oasis of Calm</h2>
       <p>Women in Wellness Spa is an oasis of calmness, offering therapeutic and relaxing treatments in a nurturing, warm and inviting environment.</p>
+      <p>Founded by Zanele Selomeletso, the spa has grown into a trusted name in Rustenburg — known for attentive, experienced therapists and a genuinely relaxing experience from the moment you arrive.</p>
       <p>From massage and bodywork to facials, waxing, nail care and slimming treatments, every visit is shaped around your wellbeing — with professional therapists and premium products at the heart of everything we do.</p>
       <ul class="feature-list">
         <li><svg width="18" height="18"><use href="#ic-bloom"/></svg> Professional Therapists</li>
@@ -79,8 +89,284 @@
         <li><svg width="18" height="18"><use href="#ic-star"/></svg> Personalised Care</li>
         <li><svg width="18" height="18"><use href="#ic-curve"/></svg> Your Wellness, Our Priority</li>
       </ul>
-      <a href="booking.html" class="btn btn-outline">Book Your Visit</a>
+      <a href="#booking" class="btn btn-outline">Book Your Visit</a>
     </div>
+  </div>
+</section>
+
+<section id="treatments" class="fade">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Menu</div>
+      <h2 class="serif-heading">Treatments &amp; Packages</h2>
+      <p>A full menu of massage, skin, waxing, nail and slimming treatments, plus curated packages — straight from our current price list.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-massage"/></svg></div>
+        <h3>Massages &amp; Body Treatments</h3>
+        <ul class="price-list">
+          <li><span>Swedish Massage <em>60 / 90 min</em></span><b>R630 / R780</b></li>
+          <li><span>Deep Tissue <em>60 / 90 min</em></span><b>R790 / R890</b></li>
+          <li><span>Aromatherapy <em>60 / 90 min</em></span><b>R750 / R870</b></li>
+          <li><span>Hot Stone <em>60 / 90 min</em></span><b>R700 / R780</b></li>
+          <li><span>Candle Massage <em>60 / 90 min</em></span><b>R760 / R870</b></li>
+          <li><span>Pregnancy Massage <em>60 min</em></span><b>R760</b></li>
+          <li><span>Couples Fullbody <em>60 min</em></span><b>R1260</b></li>
+          <li><span>Sports Massage <em>60 / 90 min</em></span><b>R800 / R1050</b></li>
+          <li><span>Back Massage <em>30 / 45 min</em></span><b>R350 / R450</b></li>
+          <li><span>Indian Head <em>30 / 45 min</em></span><b>R330 / R360</b></li>
+          <li><span>MLD Massage <em>45 min</em></span><b>R800</b></li>
+          <li><span>Foot Massage <em>30 / 45 min</em></span><b>R320 / R450</b></li>
+          <li><span>Back Exfoliation</span><b>R250</b></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-bloom"/></svg></div>
+        <h3>Skin Care</h3>
+        <ul class="price-list">
+          <li><span>Express Facial <em>30 min</em></span><b>R400</b></li>
+          <li><span>Hydrating Facial <em>60 min</em></span><b>R500</b></li>
+          <li><span>Nourishing Facial <em>60 min</em></span><b>R650</b></li>
+          <li><span>Firming Facial <em>60 min</em></span><b>R650</b></li>
+          <li><span>Reparing Facial <em>60 min</em></span><b>R550</b></li>
+          <li><span>Dermaplaning <em>45 min</em></span><b>R500</b></li>
+          <li><span>Microneedling <em>60 min</em></span><b>R600</b></li>
+          <li><span>Deep Cleansing <em>60 min</em></span><b>R570</b></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-hand"/></svg></div>
+        <h3>Hand &amp; Foot Care</h3>
+        <ul class="price-list">
+          <li><span>Manicure <em>30 / 60 min</em></span><b>R200 / R250</b></li>
+          <li><span>Pedicure <em>30 / 60 min</em></span><b>R220 / R260</b></li>
+          <li><span>Gel Pedicure <em>60 min</em></span><b>R300</b></li>
+          <li><span>Gents Gel Overlay</span><b>R150</b></li>
+          <li><span>Buff &amp; Shine</span><b>R120</b></li>
+          <li><span>Foot Exfoliation &amp; Massage</span><b>R250</b></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-drop"/></svg></div>
+        <h3>Waxing</h3>
+        <ul class="price-list two-col">
+          <li><span>Eyebrow Wax</span><b>R120</b></li>
+          <li><span>Eyelash Tint</span><b>R110</b></li>
+          <li><span>Eyebrow Tint</span><b>R110</b></li>
+          <li><span>Lip</span><b>R100</b></li>
+          <li><span>Chin</span><b>R130</b></li>
+          <li><span>Full Face</span><b>R280</b></li>
+          <li><span>Underarm</span><b>R170</b></li>
+          <li><span>Full Bikini</span><b>R430</b></li>
+          <li><span>Half Arm</span><b>R180</b></li>
+          <li><span>Half Leg</span><b>R250</b></li>
+          <li><span>Full Leg</span><b>R350</b></li>
+          <li><span>Brazilian</span><b>R350</b></li>
+          <li><span>Full Stomach</span><b>R170</b></li>
+          <li><span>Half Back</span><b>R180</b></li>
+          <li><span>Full Back</span><b>R300</b></li>
+          <li><span>Vajacial</span><b>R500</b></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-curve"/></svg></div>
+        <h3>Slimming Solutions</h3>
+        <ul class="price-list">
+          <li><span>Cavitation <em>1 / 8 sessions</em></span><b>R380 / R3000</b></li>
+          <li><span>Lipo Laser <em>1 / 8 sessions</em></span><b>R350 / R1800</b></li>
+          <li><span>Skin Tightening RF &amp; Vacuum <em>1 / 8</em></span><b>R450 / R3400</b></li>
+          <li><span>Slimming Combo <em>1 / 8 sessions</em></span><b>R550 / R4200</b></li>
+          <li><span>Wood Therapy <em>30 / 60 min</em></span><b>R430 / R550</b></li>
+          <li><span>Wood Therapy <em>8 x 30 / 60 min</em></span><b>R3240 / R4200</b></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-star"/></svg></div>
+        <h3>Kiddies Treatments <span class="note">age 12 &amp; below</span></h3>
+        <ul class="price-list">
+          <li><span>Fullbody Massage <em>45 min</em></span><b>R350</b></li>
+          <li><span>Manicure &amp; Pedicure <em>30 min</em></span><b>R260</b></li>
+          <li><span>Express Facial <em>20 min</em></span><b>R150</b></li>
+          <li><span>BNS Massage <em>30 min</em></span><b>R160</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages" class="packages fade">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Spa Packages</div>
+      <h2 class="serif-heading">Curated Experiences</h2>
+    </div>
+    <div class="pack-grid">
+      <div class="pack"><h4>Girls Day Out</h4><div class="price">R950</div><p>60 min Swedish massage · gel overlay toes · glass of champagne, per person</p></div>
+      <div class="pack"><h4>Couples Retreat 1</h4><div class="price">R1800</div><p>Back exfoliation · 30 min BNS massage · 20 min head massage · fruit platter &amp; champagne, per couple</p></div>
+      <div class="pack"><h4>Couples Retreat 2</h4><div class="price">R3100</div><p>60 min Swedish massage · pedicure · express facial · light meal &amp; champagne, per couple</p></div>
+      <div class="pack"><h4>Half Day Package</h4><div class="price">R950</div><p>30 min BNS massage · 30 min head massage · 20 min foot massage, per person</p></div>
+      <div class="pack"><h4>Me-Time Package</h4><div class="price">R1000</div><p>60 min Swedish massage · 30 min express facial, per person</p></div>
+      <div class="pack"><h4>Corporate / Group</h4><div class="price">R650</div><p>30 min back, neck &amp; shoulder massage · 20 min foot massage — groups of 6+</p></div>
+      <div class="pack"><h4>Birthday Package</h4><div class="price">R1010</div><p>60 min Swedish massage · champagne · finger foods, per person</p></div>
+      <div class="pack"><h4>Mommy-To-Be</h4><div class="price">R1200<span>/R870</span></div><p>60 min pregnancy massage · non-alc champagne · finger foods — or 45 min BNS + facial + champagne</p></div>
+      <div class="pack"><h4>Bridal Package</h4><div class="price">R650</div><p>45 min BNS massage · slice of cake · herbal tea, per person</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why-us" class="why-us fade">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2 class="serif-heading">The Women in Wellness Difference</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-bloom"/></svg></div>
+        <h4>Professional Therapists</h4>
+        <p>Experienced, attentive therapists who treat every client with genuine care.</p>
+      </div>
+      <div class="why-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-star"/></svg></div>
+        <h4>Personalised Experience</h4>
+        <p>Every treatment is tailored to you — your needs, your pace, your comfort.</p>
+      </div>
+      <div class="why-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-curve"/></svg></div>
+        <h4>Relaxing Environment</h4>
+        <p>A calm, welcoming space designed to help you switch off from the moment you arrive.</p>
+      </div>
+      <div class="why-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-drop"/></svg></div>
+        <h4>Quality Products</h4>
+        <p>We use premium products chosen for results, not shortcuts.</p>
+      </div>
+      <div class="why-card">
+        <div class="menu-icon"><svg width="26" height="26"><use href="#ic-hand"/></svg></div>
+        <h4>Hygiene &amp; Professionalism</h4>
+        <p>Clean, well-maintained facilities and professional standards throughout every visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-strip fade">
+  <div class="container">
+    <p class="quote">&ldquo;Every treatment is built around genuine rest — a chance to step away, breathe, and let calm surroundings do the rest.&rdquo;</p>
+    <a href="#booking" class="btn btn-outline-light" style="margin-top:26px;">Book an Appointment</a>
+  </div>
+</section>
+
+<section id="gallery" class="gallery fade">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Take a Look Inside</div>
+      <h2 class="serif-heading">Gallery</h2>
+      <p>A glimpse of our treatment rooms and the calm that awaits at Women in Wellness Spa.</p>
+    </div>
+    <div class="masonry" id="galleryGrid"></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+</div>
+
+<section id="reviews" class="reviews fade">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Reviews</div>
+      <h2 class="serif-heading">What Our Clients Say</h2>
+      <p>Real reviews from real clients, straight from our Google Business profile.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <p>&ldquo;I had a lovely experience at Women in Wellness Spa. The space is clean, calm and very welcoming. Zaza and her team are friendly and professional and they make you feel comfortable from the moment you arrive. The whole experience was relaxing and peaceful. 10/10 I highly recommend.&rdquo;</p>
+        <div class="review-author">Ayanda Matebe <span>· 7 months ago</span></div>
+      </div>
+      <div class="review-card">
+        <p>&ldquo;I had an excellent experience at this spa. From the moment I arrived, the staff were warm, professional, and attentive. The massage was wonderful, relaxing and therapeutic. The facilities are clean, modern, and beautifully maintained.&rdquo;</p>
+        <div class="review-author">Nthabiseng Tsukudu <span>· 7 months ago</span></div>
+      </div>
+      <div class="review-card">
+        <p>&ldquo;Women in Wellness offers great service and I am always happy working with them. I would definitely recommend their massage service, one leaves feeling rejuvenated. Thank you for the great work.&rdquo;</p>
+        <div class="review-author">Tshego Sebolao <span>· 6 months ago</span></div>
+      </div>
+      <div class="review-card">
+        <p>&ldquo;Great service ever. Very welcoming, clean and professional. I am definitely going back for a massage soon.&rdquo;</p>
+        <div class="review-author">Ofentse Baloyi <span>· 7 months ago</span></div>
+      </div>
+      <div class="review-card">
+        <p>&ldquo;I recently had an exceptional experience with Women In Wellness Spa. From the moment they arrived at my doorstep, their professionalism and attention to detail were evident. The setup was quick and seamless, transforming my home into a relaxing space.&rdquo;</p>
+        <div class="review-author">Reabetswe Mogatusi <span>· 2 years ago</span></div>
+      </div>
+      <div class="review-card">
+        <p>&ldquo;Excellent service! The Women in Wellness Spa offers a clean, inviting space and has friendly, attentive staff. The owner, Zanele, is incredibly professional and knowledgeable. From the moment you walk in, you feel welcomed and well-cared for.&rdquo;</p>
+        <div class="review-author">Neo Sehlari <span>· 2 years ago</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="booking fade">
+  <div class="container booking-grid">
+    <div class="booking-intro">
+      <div class="eyebrow eyebrow-light">Reserve Your Visit</div>
+      <h2 class="serif-heading light">Book an Appointment</h2>
+      <p>Tell us what you're after and your preferred time — we'll confirm your appointment over WhatsApp or email. Prefer to reach out directly? Call, message or email us and we'll help you find the right treatment and time.</p>
+      <ul class="booking-policy">
+        <li><i class="fa-solid fa-calendar-check"></i> By appointment only — please book ahead to guarantee your preferred time</li>
+        <li><i class="fa-solid fa-hand-holding-dollar"></i> A deposit is required to confirm your booking — contact us for current requirements</li>
+        <li><i class="fa-solid fa-rotate-left"></i> Please give us as much notice as possible for any cancellations or rescheduling</li>
+      </ul>
+      <div class="booking-contact">
+        <a href="tel:+27645157086"><i class="fa-solid fa-phone"></i> 064 515 7086</a>
+        <a href="mailto:bookings@womeninwellness.co.za"><i class="fa-solid fa-envelope"></i> bookings@womeninwellness.co.za</a>
+        <a href="https://wa.me/27645157086" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Message us on WhatsApp</a>
+      </div>
+      <div class="f-social" style="margin-top:28px;">
+        <a href="https://wa.me/27645157086" target="_blank" rel="noopener" class="social-badge wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/spa_womeninwellness" target="_blank" rel="noopener" class="social-badge ig" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/womeninwellnessspa" target="_blank" rel="noopener" class="social-badge fb" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <form id="bookingForm" class="booking-form">
+      <div class="form-row">
+        <div class="field"><label for="fName">Full Name</label><input type="text" id="fName" name="name" required></div>
+        <div class="field"><label for="fPhone">Phone Number</label><input type="tel" id="fPhone" name="phone" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="fEmail">Email Address</label><input type="email" id="fEmail" name="email"></div>
+        <div class="field"><label for="fService">Treatment</label>
+          <select id="fService" name="service" required>
+            <option value="" disabled selected>Select a treatment</option>
+            <option>Massage &amp; Bodywork</option>
+            <option>Facial / Skin Care</option>
+            <option>Waxing</option>
+            <option>Hand &amp; Foot Care</option>
+            <option>Slimming Solutions</option>
+            <option>Kiddies Treatment</option>
+            <option>A Spa Package</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="fDate">Preferred Date</label><input type="date" id="fDate" name="date" required></div>
+        <div class="field"><label for="fTime">Preferred Time</label><input type="time" id="fTime" name="time" required></div>
+      </div>
+      <div class="field"><label for="fNotes">Additional Notes</label><textarea id="fNotes" name="notes" rows="3" placeholder="Anything we should know?"></textarea></div>
+      <button type="submit" class="btn btn-primary btn-block">Request Appointment</button>
+      <p class="form-note" id="formNote">We'll open WhatsApp with your details pre-filled so you can send your request directly to the spa.</p>
+    </form>
   </div>
 </section>
 
@@ -88,7 +374,7 @@
   <div class="container contact-grid">
     <div>
       <div class="eyebrow">Get In Touch</div>
-      <h2 class="serif-heading">Visit or Contact Us</h2>
+      <h2 class="serif-heading">Location &amp; Contact</h2>
       <div class="info-row"><div class="ic"><i class="fa-solid fa-location-dot"></i></div><div><h4>Address</h4><p>237 Beyers Naude Drive, Rustenburg, 2999, South Africa</p></div></div>
       <div class="info-row"><div class="ic"><i class="fa-solid fa-phone"></i></div><div><h4>Phone / WhatsApp</h4><p><a href="https://wa.me/27645157086" target="_blank" rel="noopener">064 515 7086</a></p></div></div>
       <div class="info-row"><div class="ic"><i class="fa-solid fa-envelope"></i></div><div><h4>Email</h4><p><a href="mailto:bookings@womeninwellness.co.za">bookings@womeninwellness.co.za</a></p></div></div>
@@ -100,6 +386,37 @@
       </div>
     </div>
     <div class="map">📍 237 Beyers Naude Drive, Rustenburg, 2999, South Africa</div>
+  </div>
+</section>
+
+<section id="faq" class="faq fade">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="serif-heading">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">Do you offer mobile / at-home treatments?<i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes — we offer select treatments at your home. Message us on WhatsApp to arrange a mobile appointment.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How do I book an appointment?<i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>You can book using the form above, or reach us directly via WhatsApp, phone or email — whichever is easiest for you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you require a deposit?<i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes, a deposit is required to secure your booking. Please contact us directly for current deposit requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Not sure which treatment is right for you?<i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Get in touch and one of our therapists will be happy to help you choose the right treatment for your needs.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you offer gift vouchers?<i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Please get in touch via WhatsApp or phone to ask about current gift voucher availability.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -117,11 +434,14 @@
       </div>
       <div>
         <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="treatments.html">Treatments &amp; Packages</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="booking.html">Booking</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#booking">Booking</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
       </div>
       <div>
         <h4>Contact</h4>

@@ -41,7 +41,7 @@ if (hamburger && mobileMenu) {
   });
 }
 
-// Gallery + lightbox (only runs on gallery.html, where #galleryGrid exists)
+// Gallery + lightbox (guarded — only runs where #galleryGrid exists on the page)
 const galleryGrid = document.getElementById('galleryGrid');
 if (galleryGrid) {
   const TOTAL_IMAGES = 24;
@@ -110,7 +110,41 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
-// Booking form -> pre-filled WhatsApp message (only runs on booking.html)
+// Scroll-spy: highlight the current section's nav link
+const navLinks = document.querySelectorAll('.nav-link[data-section]');
+if (navLinks.length) {
+  const sections = Array.from(navLinks)
+    .map(link => document.getElementById(link.dataset.section))
+    .filter(Boolean);
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(section => spy.observe(section));
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').style.maxHeight = null;
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    answer.style.maxHeight = !isOpen ? `${answer.scrollHeight}px` : null;
+  });
+});
+
+// Booking form -> pre-filled WhatsApp message (guarded — only runs if #bookingForm exists on the page)
 const SPA_WHATSAPP = '27645157086';
 const bookingForm = document.getElementById('bookingForm');
 const formNote = document.getElementById('formNote');
