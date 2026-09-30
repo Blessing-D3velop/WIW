@@ -1,6 +1,8 @@
 :root{
   --sage:#798275; --sage-dark:#5B6359; --sage-soft:#B1A7A0;
   --ink:#090706; --white:#FDFDFD; --beige:#ECE5DF; --taupe:#D7C6BE;
+}body {
+    display: none;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
