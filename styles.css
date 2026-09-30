@@ -34,8 +34,10 @@ h1,h2,h3,h4{font-weight:400;}
 header{position:fixed; top:0; left:0; right:0; z-index:100; transition:.4s; background:transparent;}
 header.solid{background:rgba(253,253,253,.95); backdrop-filter:blur(10px); box-shadow:0 2px 20px rgba(9,7,6,.06);}
 .nav-wrap{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1200px; margin:0 auto;}
-.brand-mark{height:46px; width:auto; transition:filter .3s;}
-header:not(.solid) .brand-mark{filter:brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,.25));}
+/* Logo sits on a small white plate so it stays legible over the hero photo or the dark
+   footer even though a .jpeg can't have a transparent background. If a transparent .png
+   version of the logo is provided later, this plate can be removed for a cleaner look. */
+.brand-mark{height:46px; width:auto; max-width:220px; object-fit:contain; background:#fff; padding:5px 14px; border-radius:6px; box-shadow:0 2px 10px rgba(9,7,6,.15); transition:box-shadow .3s;}
 nav ul{display:flex; gap:22px; list-style:none;}
 nav a{font-size:.72rem; letter-spacing:1.8px; text-transform:uppercase; position:relative; color:var(--ink);}
 header:not(.solid) nav a{color:var(--white);}
@@ -126,6 +128,21 @@ section{padding:110px 0;}
 .price-list li em{color:#999; font-style:normal; font-size:.72rem; margin-left:5px;}
 .price-list li b{color:var(--sage-dark); font-weight:600; white-space:nowrap;}
 
+/* POST-OPERATIVE MLD BLOCK */
+.mld-block{margin-top:50px; background:var(--white); border:1px solid var(--sage); border-radius:4px; padding:40px 36px;}
+.mld-header{display:flex; align-items:center; gap:18px; margin-bottom:18px;}
+.mld-header h3{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; color:var(--ink); font-weight:500;}
+.mld-tagline{font-size:.85rem; color:var(--sage-dark); margin-top:2px;}
+.mld-desc{color:#3a3a38; line-height:1.8; max-width:720px; margin-bottom:30px; font-size:.95rem;}
+.mld-packages{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; background:var(--beige); border:1px solid var(--beige); margin-bottom:30px;}
+.mld-package{background:var(--white); padding:24px 22px;}
+.mld-package h4{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.15rem; color:var(--sage-dark); margin-bottom:14px; font-weight:500;}
+.mld-notice{background:var(--beige); border-left:3px solid var(--sage-dark); padding:22px 26px; border-radius:2px;}
+.mld-notice h4{display:flex; align-items:center; gap:10px; font-size:.85rem; letter-spacing:1px; text-transform:uppercase; color:var(--sage-dark); margin-bottom:14px;}
+.mld-notice ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+.mld-notice li{position:relative; padding-left:18px; font-size:.86rem; color:#3a3a38; line-height:1.6;}
+.mld-notice li::before{content:"—"; position:absolute; left:0; color:var(--sage);}
+
 /* PACKAGES */
 .packages{background:var(--beige);}
 .pack-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2px; background:var(--sage-soft);}
@@ -189,6 +206,8 @@ section{padding:110px 0;}
 .booking-policy{list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:30px; max-width:400px;}
 .booking-policy li{display:flex; gap:12px; font-size:.85rem; color:#e3e0db; line-height:1.6;}
 .booking-policy li i{color:var(--taupe); margin-top:3px; flex-shrink:0; width:16px;}
+.policy-link{display:inline-block; font-size:.82rem; color:var(--taupe); border-bottom:1px solid rgba(255,255,255,.4); margin-bottom:28px;}
+.policy-link:hover{color:var(--white);}
 .booking-contact{display:flex; flex-direction:column; gap:12px;}
 .booking-contact a{font-size:.92rem; display:flex; align-items:center; gap:10px; width:fit-content; overflow-wrap:anywhere; max-width:100%;}
 .booking-contact a i{color:var(--taupe); width:16px; text-align:center;}
@@ -216,12 +235,23 @@ section{padding:110px 0;}
 .faq-item.open .faq-question i{transform:rotate(180deg);}
 .faq-answer{max-height:0; overflow:hidden; transition:max-height .35s ease;}
 .faq-answer p{padding:0 4px 20px; color:#555; font-size:.9rem; line-height:1.7; max-width:640px;}
+.faq-answer p a{color:var(--sage-dark); border-bottom:1px solid var(--sage);}
+
+/* SPA POLICY & TERMS */
+.policy{background:var(--beige);}
+.policy-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2px; background:var(--sage-soft); margin-bottom:36px;}
+.policy-card{background:var(--white); padding:30px 26px;}
+.policy-card h3{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--sage-dark); margin-bottom:16px; font-weight:500;}
+.policy-card ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+.policy-card li{position:relative; padding-left:16px; font-size:.86rem; color:#3a3a38; line-height:1.65;}
+.policy-card li::before{content:"—"; position:absolute; left:0; color:var(--sage);}
+.policy-agreement{text-align:center; font-size:.85rem; color:var(--sage-dark); font-style:italic; max-width:600px; margin:0 auto;}
 
 /* FOOTER - fully responsive, no overflow */
 footer{background:var(--ink); color:var(--beige); padding:70px 0 30px; overflow-x:hidden; width:100%;}
 .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:50px; min-width:0;}
 .footer-grid > div{min-width:0;}
-.footer-logo{height:34px; filter:brightness(0) invert(1); opacity:.9; margin-bottom:14px;}
+.footer-logo{height:34px; width:auto; max-width:170px; object-fit:contain; background:#fff; padding:5px 14px; border-radius:6px; display:inline-block; margin-bottom:14px;}
 .footer-grid h4{color:var(--white); font-size:.75rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:18px;}
 .footer-grid p, .footer-grid a{color:#c7c1b9; font-size:.86rem; line-height:2; display:block; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
 .footer-grid a:hover{color:var(--sage-soft);}
