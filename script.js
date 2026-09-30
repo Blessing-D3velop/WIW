@@ -70,7 +70,7 @@ try {
 try {
   const galleryGrid = document.getElementById('galleryGrid');
   if (galleryGrid) {
-    const TOTAL_IMAGES = 25s;
+    const TOTAL_IMAGES = 25;
     const images = [];
     for (let i = 1; i <= TOTAL_IMAGES; i++) images.push(`images/image${i}.jpeg`);
 
