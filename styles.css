@@ -1,8 +1,6 @@
 :root{
   --sage:#798275; --sage-dark:#5B6359; --sage-soft:#B1A7A0;
   --ink:#090706; --white:#FDFDFD; --beige:#ECE5DF; --taupe:#D7C6BE;
-}body {
-    display: none;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -199,6 +197,8 @@ section{padding:110px 0;}
 .review-card::before{content:"\201C"; font-family:'Cormorant Garamond',serif; font-size:3.5rem; color:var(--sage-soft); position:absolute; top:6px; left:18px; line-height:1;}
 .review-card p{font-size:.9rem; color:#3a3a38; line-height:1.75; position:relative; z-index:1; margin-bottom:16px;}
 .review-author{font-size:.8rem; letter-spacing:.5px; color:var(--sage-dark); font-weight:500;}
+.review-stars{display:flex; gap:3px; margin-bottom:14px; position:relative; z-index:1;}
+.review-stars i{color:#f0b429; font-size:.8rem;}
 .review-author span{font-weight:300; color:#888;}
 
 /* BOOKING */
