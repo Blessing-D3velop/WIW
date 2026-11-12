@@ -151,8 +151,8 @@ section{padding:110px 0;}
 .pack:hover{background:var(--ink); color:var(--white);}
 .pack:hover .price{color:var(--taupe);}
 .pack:hover p{color:#cfc9c2;}
-.pack h4{font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage-dark); margin-bottom:10px;}
-.pack:hover h4{color:var(--sage-soft);}
+.pack h3{font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage-dark); margin-bottom:10px;}
+.pack:hover h3{color:var(--sage-soft);}
 .pack .price{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2rem; color:var(--ink); transition:.35s;}
 .pack .price span{font-family:'Jost',sans-serif; font-style:normal; font-size:.8rem; color:#999;}
 .pack p{font-size:.83rem; color:#666; margin-top:10px; line-height:1.65; transition:.35s;}
@@ -161,7 +161,7 @@ section{padding:110px 0;}
 .why-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px;}
 .why-card{text-align:center; padding:14px;}
 .why-card .menu-icon{margin:0 auto 16px;}
-.why-card h4{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; margin-bottom:8px; font-weight:500;}
+.why-card h3{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; margin-bottom:8px; font-weight:500;}
 .why-card p{font-size:.86rem; color:#666; line-height:1.65;}
 
 /* QUOTE STRIP */
@@ -328,3 +328,18 @@ footer{background:var(--ink); color:var(--beige); padding:70px 0 30px; overflow-
   .floating-dock .social-badge{width:40px; height:40px;}
   .floating-dock .social-badge i{font-size:1rem;}
 }
+
+/* PRICE LIST 2026/2027 + MOBILE SERVICES NOTE */
+.price-meta{font-size:.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--sage-dark); margin-top:10px;}
+.price-foot{font-size:.74rem; color:#8a8a86; margin-top:12px; line-height:1.5;}
+.mobile-note{display:flex; gap:16px; align-items:flex-start; background:var(--beige); border-left:3px solid var(--sage-dark); border-radius:2px; padding:20px 24px; margin:0 auto 40px; max-width:860px;}
+.mobile-note > i{color:var(--sage-dark); font-size:1.2rem; margin-top:3px;}
+.mobile-note p{font-size:.88rem; color:#3a3a38; line-height:1.7;}
+.mobile-note p + p{margin-top:8px;}
+.mobile-note a{color:var(--sage-dark); border-bottom:1px solid var(--sage); font-weight:500;}
+.packages .mobile-note{margin:40px auto 0; background:var(--white);}
+
+/* SEO / accessibility helpers */
+.skip-link{position:absolute; left:-9999px; top:8px; background:var(--sage-dark); color:#fff; padding:10px 18px; border-radius:6px; z-index:1000; font-size:.8rem;}
+.skip-link:focus{left:12px;}
+.contact-intro{color:#555; line-height:1.75; font-size:.95rem; margin:0 0 24px; max-width:460px;}

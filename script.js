@@ -70,7 +70,7 @@ try {
 try {
   const galleryGrid = document.getElementById('galleryGrid');
   if (galleryGrid) {
-    const TOTAL_IMAGES = 25;
+    const TOTAL_IMAGES = 30;
     const images = [];
     for (let i = 1; i <= TOTAL_IMAGES; i++) images.push(`images/image${i}.jpeg`);
 
@@ -88,7 +88,7 @@ try {
       lightboxImg.classList.add('fading');
       window.setTimeout(() => {
         lightboxImg.src = images[currentIndex];
-        lightboxImg.alt = `Women in Wellness Spa gallery photo ${currentIndex + 1}`;
+        lightboxImg.alt = `Women in Wellness Spa Rustenburg – spa treatment gallery photo ${currentIndex + 1}`;
         lightboxImg.classList.remove('fading');
       }, 150);
     }
@@ -127,7 +127,7 @@ try {
     images.forEach((src, i) => {
       const item = document.createElement('div');
       item.className = 'g-item';
-      item.innerHTML = `<img src="${src}" alt="Women in Wellness Spa gallery photo ${i + 1}" loading="lazy">`;
+      item.innerHTML = `<img src="${src}" alt="Women in Wellness Spa Rustenburg – spa treatment gallery photo ${i + 1}" loading="lazy" decoding="async">`;
       item.addEventListener('click', () => openLightbox(i));
       galleryGrid.appendChild(item);
     });
