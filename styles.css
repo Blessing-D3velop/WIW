@@ -343,3 +343,44 @@ footer{background:var(--ink); color:var(--beige); padding:70px 0 30px; overflow-
 .skip-link{position:absolute; left:-9999px; top:8px; background:var(--sage-dark); color:#fff; padding:10px 18px; border-radius:6px; z-index:1000; font-size:.8rem;}
 .skip-link:focus{left:12px;}
 .contact-intro{color:#555; line-height:1.75; font-size:.95rem; margin:0 0 24px; max-width:460px;}
+/* Separate Developer Icon */
+.developer-credit {
+  position: fixed;
+  left: 25px;
+  bottom: 25px;
+  z-index: 99999;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #080808;
+  color: #ffffff;
+  border: 2px solid #e50914;
+  border-radius: 50%;
+
+  font-size: 23px;
+  text-decoration: none;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.developer-credit:hover {
+  background: #e50914;
+  color: #ffffff;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 600px) {
+  .developer-credit {
+    left: 18px;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+    font-size: 21px;
+  }
+}
